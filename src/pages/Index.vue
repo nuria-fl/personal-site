@@ -35,7 +35,7 @@
 <script>
 export default {
   metaInfo: {
-    title: "Núria"
+    title: "Home"
   }
 };
 </script>
