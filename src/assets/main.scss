@@ -1,0 +1,35 @@
+@import "./normalize.scss";
+@import "./variables.scss";
+
+*,
+*:before,
+*:after {
+  box-sizing: border-box;
+}
+
+::-moz-selection {
+  background: $accent-color;
+}
+
+::selection {
+  background: $accent-color;
+}
+
+body {
+  width: 100%;
+  min-height: 100vh;
+  background: $background-color;
+  color: $text-color;
+  font-family: "PT Mono", monospace;
+}
+
+a {
+  color: $primary-color;
+  -webkit-transition: color 0.3s;
+  -o-transition: color 0.3s;
+  transition: color 0.3s;
+}
+
+a:hover {
+  color: $secondary-color;
+}
