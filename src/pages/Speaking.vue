@@ -1,10 +1,9 @@
 <template>
-  <Layout>
-    <h1>Speaking</h1>
+  <Layout page-title="Hi! I’m a speaker">
     <p>I sometimes speak at meetups and conferences.</p>
 
     <ul class="events">
-      <li v-for="event in events" :key="event.name" class="events__item">
+      <li v-for="event in events" :key="`${event.name}-${event.talk}`" class="events__item">
         <h2 class="events__title"><strong>{{ event.talk }}</strong> - {{ event.name }}</h2>
         <small class="events__date">{{ event.date }}</small>
         <a  class="events__link" :href="event.slides" v-if="event.slides">🖥 Slides</a>

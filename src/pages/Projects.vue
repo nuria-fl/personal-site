@@ -1,6 +1,5 @@
 <template>
-  <Layout>
-    <h1>Projects</h1>
+  <Layout page-title="Hi! I have a few projects">
     <p>In my free time I like to develop videogames.</p>
 
     <section>

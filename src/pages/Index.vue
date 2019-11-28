@@ -1,8 +1,5 @@
 <template>
-  <Layout>
-
-    <h1>I’m Núria.</h1>
-
+  <Layout page-title="Hi! I'm Núria.">
       <p>I’m a developer.</p>
 
       <p>I work mostly on front-end.</p>

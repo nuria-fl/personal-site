@@ -1,3 +1,4 @@
+@import url("https://fonts.googleapis.com/css?family=PT+Sans|PT+Serif&display=swap");
 @import "./normalize.scss";
 @import "./variables.scss";
 
@@ -20,7 +21,16 @@ body {
   min-height: 100vh;
   background: $background-color;
   color: $text-color;
-  font-family: "PT Mono", monospace;
+  font-family: "PT Sans", sans-serif;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5 {
+  font-family: "PT Serif", serif;
+  font-weight: 400;
 }
 
 a {
@@ -32,4 +42,11 @@ a {
 
 a:hover {
   color: $secondary-color;
+}
+
+.container {
+  width: 850px;
+  max-width: 100%;
+  padding: 0 2rem;
+  margin: 0 auto;
 }
