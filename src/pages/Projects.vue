@@ -1,7 +1,5 @@
 <template>
-  <Layout page-title="Hi! I have a few projects.">
-    <p>In my free time I like to develop videogames.</p>
-
+  <Layout page-title="Hi! I have a few projects." page-description="I like to develop videogames in my free time">
     <section>
       <h2>My games</h2>
       <div class="games">

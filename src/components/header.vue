@@ -6,13 +6,15 @@
         <g-link class="nav__link" to="/speaking/">Speaking</g-link>
         <g-link class="nav__link" to="/projects/">Projects</g-link>
       </nav>
-      <h1>
-        {{ titleParts[0] }}
-        <strong>
-          {{ titleParts[1] }}
-        </strong>
-      </h1>
-
+      <div>
+        <h1 class="header__title">
+          {{ titleParts[0] }}
+          <strong>
+            {{ titleParts[1] }}
+          </strong>
+        </h1>
+        <p class="header__lead">{{ pageDescription }}</p>
+      </div>
     </div>
   </header>
 </template>
@@ -25,6 +27,10 @@ export default {
     //   required: true
     // },
     pageTitle: {
+      type: String,
+      required: true
+    },
+    pageDescription: {
       type: String,
       required: true
     }
@@ -56,6 +62,20 @@ export default {
     flex-direction: column;
     justify-content: space-between;
   }
+  &__title {
+    margin-bottom: 0;
+    font-size: 1.25rem;
+    line-height: 1;
+    strong {
+      display: block;
+      font-weight: 400;
+      font-size: 2.5rem;
+    }
+  }
+  &__lead {
+    margin: 1rem 0 0;
+    font-size: 1.125rem;
+  }
 }
 
 .nav {
@@ -63,16 +83,6 @@ export default {
   &__link {
     display: inline-block;
     margin-left: 1em;
-  }
-}
-
-h1 {
-  margin-bottom: 0;
-  font-size: 20px;
-  strong {
-    display: block;
-    font-weight: 400;
-    font-size: 40px;
   }
 }
 </style>

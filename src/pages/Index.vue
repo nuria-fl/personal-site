@@ -1,5 +1,5 @@
 <template>
-  <Layout page-title="Hi! I'm Núria.">
+  <Layout page-title="Hi! I'm Núria." page-description="I’m a developer, working mostly on front-end">
       <p>I’m a developer.</p>
 
       <p>I work mostly on front-end.</p>

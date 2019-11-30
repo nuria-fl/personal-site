@@ -1,7 +1,5 @@
 <template>
-  <Layout page-title="Hi! I’m a speaker">
-    <p>I sometimes speak at meetups and conferences.</p>
-
+  <Layout page-title="Hi! I’m a speaker" page-description="I like to speak at meetups and conferences">
     <ul class="talks">
       <li v-for="talk in talksList" :key="`${talk.conf}-${talk.title}`" class="talks__item">
         <h2 class="talks__title"><strong>{{ talk.title }}</strong> - {{ talk.conf }}</h2>

@@ -1,6 +1,6 @@
 <template>
   <div>
-    <AppHeader :pageTitle="pageTitle" />
+    <AppHeader :pageTitle="pageTitle" :pageDescription="pageDescription" />
     <main class="container">
       <slot/>
     </main>
@@ -36,6 +36,10 @@ export default {
     //   required: true
     // },
     pageTitle: {
+      type: String,
+      required: true
+    },
+    pageDescription: {
       type: String,
       required: true
     }
