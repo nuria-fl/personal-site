@@ -13,6 +13,13 @@ module.exports = {
         typeName: "Talk",
         path: "./content/talks/*.json"
       }
+    },
+    {
+      use: "@gridsome/source-filesystem",
+      options: {
+        typeName: "Project",
+        path: "./content/projects/*.md"
+      }
     }
   ]
 };

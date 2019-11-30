@@ -22,6 +22,7 @@ body {
   background: $background-color;
   color: $text-color;
   font-family: "PT Sans", sans-serif;
+  font-size: 16px;
 }
 
 h1,
@@ -45,8 +46,9 @@ a:hover {
 }
 
 .container {
-  width: 850px;
+  width: 54rem;
   max-width: 100%;
   padding: 0 2rem;
   margin: 0 auto;
+  font-size: 1.2rem;
 }
