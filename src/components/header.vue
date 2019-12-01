@@ -56,6 +56,11 @@ export default {
   height: 35vh;
   padding: 2rem 0;
   background: rgba($text-color, .3);
+  background-size: cover;
+  background-position: center 37%;
+  &--dark {
+    color: #fff;
+  }
   &__content {
     height: 100%;
     display: flex;

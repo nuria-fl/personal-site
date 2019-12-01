@@ -1,7 +1,8 @@
 {
   "conf": "AdaJS",
-  "date": "November 2019",
+  "date": "2019-11-26",
   "title": "De JS a Rust: las otras razones",
   "slides": "https://from-js-to-rust.netlify.com/",
-  "video": null
+  "video": null,
+  "image": "./from-js-to-rust-ada.jpg"
 }

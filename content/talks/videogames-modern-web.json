@@ -1,7 +1,8 @@
 {
   "conf": "Modern Web",
-  "date": "November 2019",
+  "date": "2019-11-13",
   "title": "Videojuegos con JavaScript: Lessons learned",
   "slides": "https://drive.google.com/open?id=19rKHcfrFYcTC7N1s794tcPQp37WLZU_z",
-  "video": ""
+  "video": "",
+  "image": "./videogames-modern-web.jpg"
 }

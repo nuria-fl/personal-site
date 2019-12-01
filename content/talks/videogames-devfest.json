@@ -1,8 +1,9 @@
 {
   "conf": "DevFest Alicante",
-  "date": "November 2019",
+  "date": "2019-11-16",
   "title": "Videojuegos con JavaScript: Lessons learned",
   "slides": "https://drive.google.com/open?id=1adQj93kDXWIZbva3jkea-CP6S4b6_X8m",
   "video": "https://www.youtube.com/watch?v=B8B5ZVnPvRU",
-  "featured": true
+  "featured": true,
+  "image": "./videogames-devfest.jpg"
 }

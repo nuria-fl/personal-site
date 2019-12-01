@@ -35,7 +35,7 @@ query {
     edges {
       node {
         title
-        image(width:800, height: 500, quality: 100)
+        image(width:800, height: 550, quality: 100)
         category
         content
         link

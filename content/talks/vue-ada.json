@@ -1,6 +1,7 @@
 {
   "conf": "AdaJS",
-  "date": "June 2017",
+  "date": "2017-06-01",
   "title": "Introducción a Vue",
-  "slides": "https://slides.com/nuria-fl/vuejs-ada"
+  "slides": "https://slides.com/nuria-fl/vuejs-ada",
+  "image": "./vue-ada.jpg"
 }
