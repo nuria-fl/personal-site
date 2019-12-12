@@ -1,5 +1,5 @@
 <template>
-  <header class="header">
+  <header class="header header--dark" style="backgroundImage: url('/speaker-img.jpeg')">
     <div class="container header__content">
       <nav class="nav">
         <g-link class="nav__link" to="/">Home</g-link>
@@ -52,17 +52,29 @@ export default {
 @import "~/assets/variables";
 
 .header {
-  min-height: 10rem;
-  height: 35vh;
+  min-height: 13rem;
+  height: 38vh;
+  margin-bottom: 3rem;
   padding: 2rem 0;
   background: rgba($text-color, .3);
   background-size: cover;
   background-position: center 37%;
+  position: relative;
+  &:before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0,0,0,.2);
+  }
   &--dark {
     color: #fff;
   }
   &__content {
     height: 100%;
+    position: relative;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
@@ -84,10 +96,19 @@ export default {
 }
 
 .nav {
-  align-self: flex-end;
+  align-self: center;
+  @media screen and (min-width: $mq-sm) {
+    align-self: flex-end;
+  }
   &__link {
     display: inline-block;
     margin-left: 1em;
+    color: #fff;
+    text-shadow: 0 0 1.2rem rgba(0,0,0,.7);
+    text-decoration: none;
+    &:first-child {
+      margin-left: 0;
+    }
   }
 }
 </style>

@@ -73,17 +73,19 @@ img {
   max-width: 100%;
 }
 
-.games {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  grid-column-gap: 1rem;
-  :first-child {
-    grid-column: 1 / 3;
+@media screen and (min-width: $mq-sm) {
+  .games {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-column-gap: 1rem;
+    :first-child {
+      grid-column: 1 / 3;
+    }
   }
-}
-.gamejams {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  grid-column-gap: 1rem;
+  .gamejams {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-column-gap: 1rem;
+  }
 }
 </style>

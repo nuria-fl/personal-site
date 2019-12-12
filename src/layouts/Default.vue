@@ -4,17 +4,7 @@
     <main class="container">
       <slot/>
     </main>
-    <footer class=container>
-        <a href="https://twitter.com/pincfloit">Twitter</a>
-        ·
-        <a href="http://github.com/nuria-fl/">Github</a>
-        ·
-        <a href="https://nuria.itch.io/">Itch.io</a>
-        ·
-        <a href="https://medium.com/@pincfloit">Medium</a>
-        ·
-        <a href="https://dev.to/pincfloit">Dev.to</a>
-      </footer>
+    <AppFooter />
   </div>
 </template>
 
@@ -28,6 +18,7 @@ query {
 
 <script>
 import AppHeader from "~/components/header";
+import AppFooter from "~/components/footer";
 
 export default {
   props: {
@@ -45,7 +36,8 @@ export default {
     }
   },
   components: {
-    AppHeader
+    AppHeader,
+    AppFooter
   }
 };
 </script>
