@@ -1,29 +1,17 @@
 <template>
-  <Layout page-title="Hi! I have a few projects." page-description="I like to develop videogames in my free time">
+  <Layout page-title="Hi! I have a few projects." page-description="I like to develop videogames in my free time" image="/projects-img.jpeg">
     <section>
       <h2>My games</h2>
-      <div class="games">
-        <section v-for="game in games" :key="game.title" class="games__item">
-          <a :href="game.link" rel="nofollow noopener noreferrer">
-            <g-image :src="game.image" :alt="game.title" />
-          </a>
-          <h3>{{ game.title }}</h3>
-          <div v-html="game.content"></div>
-        </section>
+      <div class="projects projects--main">
+        <Project v-for="game, i in games" :key="game.title" :project="game" :featured="i === 0" />
       </div>
     </section>
 
     <section>
       <h2>Game Jams</h2>
       <p>Smaller, quicker projects, developed in a couple of days.</p>
-      <div class="gamejams">
-        <section v-for="game in gamejams" :key="game.title">
-          <a :href="game.link" rel="nofollow noopener noreferrer">
-            <g-image :src="game.image" :alt="game.title" />
-          </a>
-          <h3>{{ game.title }}</h3>
-          <div v-html="game.content"></div>
-        </section>
+      <div class="projects">
+        <Project v-for="game in gamejams" :key="game.title" :project="game" />
       </div>
     </section>
   </Layout>
@@ -46,9 +34,15 @@ query {
 </page-query>
 
 <script>
+import Project from "~/components/project";
+
 export default {
   metaInfo: {
-    title: "Projects"
+    title: "Projects",
+    description: "I like to develop videogames in my free time"
+  },
+  components: {
+    Project
   },
   computed: {
     projectsList() {
@@ -73,19 +67,17 @@ img {
   max-width: 100%;
 }
 
-@media screen and (min-width: $mq-sm) {
-  .games {
+.projects {
+  @media screen and (min-width: $mq-sm) {
     display: grid;
     grid-template-columns: 1fr 1fr;
     grid-column-gap: 1rem;
-    :first-child {
-      grid-column: 1 / 3;
+    &--main {
+      :first-child {
+        grid-column: 1 / 3;
+      }
     }
   }
-  .gamejams {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    grid-column-gap: 1rem;
-  }
 }
+
 </style>

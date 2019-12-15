@@ -1,5 +1,5 @@
 <template>
-  <header class="header header--dark" style="backgroundImage: url('/speaker-img.jpeg')">
+  <header class="header header--dark" :style="`backgroundImage: url(${image})`">
     <div class="container header__content">
       <nav class="nav">
         <g-link class="nav__link" to="/">Home</g-link>
@@ -22,10 +22,10 @@
 <script>
 export default {
   props: {
-    // image: {
-    //   type: String,
-    //   required: true
-    // },
+    image: {
+      type: String,
+      default: "/speaker-img.jpeg"
+    },
     pageTitle: {
       type: String,
       required: true
@@ -67,7 +67,9 @@ export default {
     left: 0;
     right: 0;
     bottom: 0;
-    background: rgba(0,0,0,.2);
+      background: -moz-linear-gradient(0deg, rgba(0,0,0,0.7) 0%, rgba(0,0,0,0.2) 100%);
+      background: -webkit-linear-gradient(0deg, rgba(0,0,0,0.7) 0%, rgba(0,0,0,0.2) 100%);
+      background: linear-gradient(0deg, rgba(0,0,0,0.7) 0%, rgba(0,0,0,0.2) 100%);
   }
   &--dark {
     color: #fff;
@@ -81,17 +83,17 @@ export default {
   }
   &__title {
     margin-bottom: 0;
-    font-size: 1.25rem;
+    font-size: 1.75rem;
     line-height: 1;
     strong {
       display: block;
       font-weight: 400;
-      font-size: 2.5rem;
+      font-size: 3rem;
     }
   }
   &__lead {
     margin: 1rem 0 0;
-    font-size: 1.125rem;
+    font-size: 1.5rem;
   }
 }
 

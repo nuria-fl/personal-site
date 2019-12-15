@@ -32,7 +32,8 @@
 <script>
 export default {
   metaInfo: {
-    title: "Home"
+    title: "Home",
+    description: "I’m a developer, working mostly on front-end"
   }
 };
 </script>

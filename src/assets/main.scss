@@ -9,11 +9,19 @@
 }
 
 ::-moz-selection {
-  background: $accent-color;
+  background: $secondary-color;
+  color: #fff;
 }
 
 ::selection {
-  background: $accent-color;
+  background: $secondary-color;
+  color: #fff;
+}
+
+html {
+  @media screen and (min-width: $mq-md) {
+    font-size: 18px;
+  }
 }
 
 body {
@@ -22,7 +30,6 @@ body {
   background: $background-color;
   color: $text-color;
   font-family: "PT Sans", sans-serif;
-  font-size: 16px;
 }
 
 h1,
@@ -35,14 +42,16 @@ h5 {
 }
 
 a {
-  color: $primary-color;
+  color: $text-color;
+  text-decoration: none;
   -webkit-transition: color 0.3s;
   -o-transition: color 0.3s;
   transition: color 0.3s;
+  border-bottom: 3px solid $primary-color;
 }
 
 a:hover {
-  color: $secondary-color;
+  background: $primary-color;
 }
 
 .container {

@@ -1,6 +1,6 @@
 <template>
   <div>
-    <AppHeader :pageTitle="pageTitle" :pageDescription="pageDescription" />
+    <AppHeader :pageTitle="pageTitle" :pageDescription="pageDescription" :image="image" />
     <main class="container">
       <slot/>
     </main>
@@ -22,10 +22,9 @@ import AppFooter from "~/components/footer";
 
 export default {
   props: {
-    // image: {
-    //   type: String,
-    //   required: true
-    // },
+    image: {
+      type: String
+    },
     pageTitle: {
       type: String,
       required: true
