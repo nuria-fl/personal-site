@@ -6,5 +6,20 @@
 
 module.exports = {
   siteName: "Hi, I'm Núria",
-  plugins: []
+  plugins: [
+    {
+      use: "@gridsome/source-filesystem",
+      options: {
+        typeName: "Talk",
+        path: "./content/talks/*.json"
+      }
+    },
+    {
+      use: "@gridsome/source-filesystem",
+      options: {
+        typeName: "Project",
+        path: "./content/projects/*.md"
+      }
+    }
+  ]
 };

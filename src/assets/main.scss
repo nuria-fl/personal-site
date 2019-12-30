@@ -1,3 +1,4 @@
+@import url("https://fonts.googleapis.com/css?family=PT+Sans|PT+Serif&display=swap");
 @import "./normalize.scss";
 @import "./variables.scss";
 
@@ -8,28 +9,53 @@
 }
 
 ::-moz-selection {
-  background: $accent-color;
+  background: $primary-color;
 }
 
 ::selection {
-  background: $accent-color;
+  background: $primary-color;
+}
+
+html {
+  @media screen and (min-width: $mq-md) {
+    font-size: 18px;
+  }
 }
 
 body {
   width: 100%;
   min-height: 100vh;
+  padding-bottom: 8rem;
+  position: relative;
   background: $background-color;
   color: $text-color;
-  font-family: "PT Mono", monospace;
+  font-family: "PT Sans", sans-serif;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5 {
+  font-family: "PT Serif", serif;
+  font-weight: 400;
 }
 
 a {
-  color: $primary-color;
-  -webkit-transition: color 0.3s;
-  -o-transition: color 0.3s;
-  transition: color 0.3s;
+  color: $text-color;
+  text-decoration: none;
+  border-bottom: 3px solid $primary-color;
 }
 
 a:hover {
-  color: $secondary-color;
+  background: $primary-color;
+}
+
+.container {
+  width: 54rem;
+  max-width: 100%;
+  padding: 0 2rem;
+  margin: 0 auto;
+  font-size: 1.2rem;
+  line-height: 1.4;
 }

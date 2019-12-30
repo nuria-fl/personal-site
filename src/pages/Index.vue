@@ -1,32 +1,31 @@
 <template>
-  <Layout>
-
-    <h1>I’m Núria.</h1>
-
-      <p>I’m a developer.</p>
-
-      <p>I work mostly on front-end.</p>
+  <Layout page-title="Hi! I'm Núria." page-description="I’m a developer, working mostly on front-end">
+      <h2>About me</h2>
 
       <p>
-        Here you can take a look at my <g-link to="/projects">projects</g-link> and the <g-link to="/speaking">talks</g-link> I've given.
+        I love JavaScript and Vue.js. Recently I've started learning Rust and I love it because it's super weird and difficult.
       </p>
 
       <p>
         I don't have a blog <em>*gasp*</em> but I often write in
         <a
           href="https://www.codegram.com/blog/author/nuria-soriano"
-          rel="noopener noreferrer"
+          rel="noopener noreferrer nofollow"
           >Codegram's blog</a
         >
         (that's where I work).
       </p>
 
       <p>
-        I’m co-organizing a javascript meetup in Barcelona,
-        <a href="https://www.meetup.com/js-coders/">JSCoders</a>, and another
+        I like to attend, organize and speak at meetups and conferences! You can take a look at the <g-link to="/speaking">talks</g-link> I've given so far. I’m co-organizing a javascript meetup in Barcelona,
+        <a href="https://www.meetup.com/js-coders/" rel="noopener noreferrer nofollow">JSCoders</a>, and another
         one in Terrassa,
-        <a href="https://www.meetup.com/Full-Stack-Valles">Full Stack Vallès</a
+        <a href="https://www.meetup.com/Full-Stack-Valles" rel="noopener noreferrer nofollow">Full Stack Vallès</a
         >.
+      </p>
+
+      <p>
+        On the personal side, I love food, craft beer and playing videogames. I sometimes develop games too, you can check them <g-link to="/projects">here</g-link>.
       </p>
 
   </Layout>
@@ -35,7 +34,8 @@
 <script>
 export default {
   metaInfo: {
-    title: "Home"
+    title: "Home",
+    description: "I’m a developer, working mostly on front-end"
   }
 };
 </script>
