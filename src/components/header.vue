@@ -52,11 +52,11 @@ export default {
 @import "~/assets/variables";
 
 .header {
-  min-height: 13rem;
-  height: 38vh;
+  min-height: 20rem;
+  height: 45vh;
   margin-bottom: 3rem;
-  padding: 2rem 0;
-  background: rgba($text-color, .3);
+  padding: 2rem 0 2rem;
+  background: $primary-color;
   background-size: cover;
   background-position: center 37%;
   position: relative;
@@ -67,9 +67,9 @@ export default {
     left: 0;
     right: 0;
     bottom: 0;
-      background: -moz-linear-gradient(0deg, rgba(0,0,0,0.7) 0%, rgba(0,0,0,0.2) 100%);
-      background: -webkit-linear-gradient(0deg, rgba(0,0,0,0.7) 0%, rgba(0,0,0,0.2) 100%);
-      background: linear-gradient(0deg, rgba(0,0,0,0.7) 0%, rgba(0,0,0,0.2) 100%);
+      background: -moz-linear-gradient(0deg, rgba(0,0,0,0.7) 0%, rgba(0,0,0,0) 100%);
+      background: -webkit-linear-gradient(0deg, rgba(0,0,0,0.7) 0%, rgba(0,0,0,0) 100%);
+      background: linear-gradient(0deg, rgba(0,0,0,0.7) 0%, rgba(0,0,0,0) 100%);
   }
   &--dark {
     color: #fff;
@@ -80,6 +80,7 @@ export default {
     display: flex;
     flex-direction: column;
     justify-content: space-between;
+    z-index: 1;
   }
   &__title {
     margin-bottom: 0;
@@ -89,6 +90,8 @@ export default {
       display: block;
       font-weight: 400;
       font-size: 3rem;
+      color: $primary-color;
+      background: rgba($text-color, .9);
     }
   }
   &__lead {
@@ -104,10 +107,11 @@ export default {
   }
   &__link {
     display: inline-block;
+    padding: 0 .1rem;
     margin-left: 1em;
     color: #fff;
-    text-shadow: 0 0 1.2rem rgba(0,0,0,.7);
     text-decoration: none;
+    background: rgba($text-color, .8);
     &:first-child {
       margin-left: 0;
     }

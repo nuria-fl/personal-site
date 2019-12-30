@@ -1,6 +1,6 @@
 <template>
-  <Layout page-title="Hi! I’m a speaker" page-description="I like to speak at meetups and conferences">
-    <Talk :talk="featured" />
+  <Layout page-title="Hi! I’m a speaker." page-description="I like to speak at meetups and conferences">
+    <FeaturedTalk :talk="featured" />
 
     <ul class="talks">
       <li v-for="talk in talksList" :key="`${talk.conf}-${talk.title}`" class="talks__item">
@@ -29,6 +29,7 @@ query {
 </page-query>
 
 <script>
+import FeaturedTalk from "~/components/featured-talk";
 import Talk from "~/components/talk";
 
 export default {
@@ -36,7 +37,8 @@ export default {
     title: "Speaking"
   },
   components: {
-    Talk
+    Talk,
+    FeaturedTalk
   },
   computed: {
     talks() {

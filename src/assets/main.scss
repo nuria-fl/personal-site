@@ -9,13 +9,11 @@
 }
 
 ::-moz-selection {
-  background: $secondary-color;
-  color: #fff;
+  background: $primary-color;
 }
 
 ::selection {
-  background: $secondary-color;
-  color: #fff;
+  background: $primary-color;
 }
 
 html {
@@ -27,6 +25,8 @@ html {
 body {
   width: 100%;
   min-height: 100vh;
+  padding-bottom: 8rem;
+  position: relative;
   background: $background-color;
   color: $text-color;
   font-family: "PT Sans", sans-serif;
@@ -44,9 +44,6 @@ h5 {
 a {
   color: $text-color;
   text-decoration: none;
-  -webkit-transition: color 0.3s;
-  -o-transition: color 0.3s;
-  transition: color 0.3s;
   border-bottom: 3px solid $primary-color;
 }
 

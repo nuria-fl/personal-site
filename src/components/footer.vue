@@ -1,9 +1,11 @@
 <template>
-  <footer class="footer container">
-    <template v-for="link, i in links">
-      <a :href="link.url" rel="noopener noreferrer nofollow" :key="link.name">{{ link.name }}</a>
-      <template v-if="i < links.length - 1">&nbsp; · &nbsp;</template>
-    </template>
+  <footer class="footer">
+    <div class="container">
+      <template v-for="link, i in links">
+        <a :href="link.url" rel="noopener noreferrer nofollow" :key="link.name">{{ link.name }}</a>
+        <template v-if="i < links.length - 1">&nbsp; · &nbsp;</template>
+      </template>
+    </div>
   </footer>
 </template>
 
@@ -39,8 +41,28 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+@import "~/assets/variables";
+
 .footer {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
   margin-top: 4rem;
-  margin-bottom: 2rem;
+  padding: 1rem 0;
+  background: $text-color;
+  color: #fff;
+  text-align: center;
+}
+
+.container {
+  font-size: 1rem;
+}
+
+a {
+  color: #fff;
+  &:hover {
+    color: $text-color;
+  }
 }
 </style>

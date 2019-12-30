@@ -1,5 +1,5 @@
 <template>
-  <Layout page-title="Hi! I have a few projects." page-description="I like to develop videogames in my free time" image="/projects-img.jpeg">
+  <Layout page-title="Hi! I have a few projects." page-description="I like to develop videogames in my free time" >
     <section>
       <h2>My games</h2>
       <div class="projects projects--main">
