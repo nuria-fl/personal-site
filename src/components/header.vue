@@ -81,6 +81,7 @@ export default {
     flex-direction: column;
     justify-content: space-between;
     z-index: 1;
+    line-height: 1.2;
   }
   &__title {
     margin-bottom: 0;

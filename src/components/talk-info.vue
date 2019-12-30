@@ -38,6 +38,7 @@ export default {
 @import "~/assets/variables";
 
 .info {
+  line-height: 1.1;
   &__title {
     margin: 0 0 .5em;
     font-size: 1.2rem;

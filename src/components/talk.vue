@@ -30,6 +30,7 @@ export default {
 
 .talk {
   display: flex;
+  align-items: center;
   padding: 1rem 0;
   border-bottom: 1px solid rgba($text-color, .2);
   font-size: 1rem;
