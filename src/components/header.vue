@@ -1,5 +1,5 @@
 <template>
-  <header class="header header--dark" :style="`backgroundImage: url(${image})`">
+  <header class="header header--dark" :style="`backgroundImage: url(/speaker-img.jpeg)`">
     <div class="container header__content">
       <nav class="nav">
         <g-link class="nav__link" to="/">Home</g-link>
@@ -22,10 +22,6 @@
 <script>
 export default {
   props: {
-    image: {
-      type: String,
-      default: "/speaker-img.jpeg"
-    },
     pageTitle: {
       type: String,
       required: true
@@ -115,6 +111,14 @@ export default {
     background: rgba($text-color, .8);
     &:first-child {
       margin-left: 0;
+    }
+    &:hover {
+      background: $primary-color;
+      color: $text-color;
+    }
+    &.active--exact {
+      color: $primary-color;
+      background: rgba($text-color, .8);
     }
   }
 }

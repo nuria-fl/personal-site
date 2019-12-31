@@ -17,7 +17,7 @@
       </p>
 
       <p>
-        I like to attend, organize and speak at meetups and conferences! You can take a look at the <g-link to="/speaking">talks</g-link> I've given so far. I’m co-organizing a javascript meetup in Barcelona,
+        I like to attend, organize and speak at meetups and conferences. You can take a look at the <g-link to="/speaking">talks</g-link> I've given so far. I’m co-organizing a javascript meetup in Barcelona,
         <a href="https://www.meetup.com/js-coders/" rel="noopener noreferrer nofollow">JSCoders</a>, and another
         one in Terrassa,
         <a href="https://www.meetup.com/Full-Stack-Valles" rel="noopener noreferrer nofollow">Full Stack Vallès</a
