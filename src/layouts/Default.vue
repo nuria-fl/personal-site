@@ -2,7 +2,7 @@
   <div>
     <AppHeader />
     <main class="container">
-      <slot/>
+      <slot />
     </main>
     <AppFooter />
   </div>
@@ -23,8 +23,8 @@ import AppFooter from "~/components/footer";
 export default {
   components: {
     AppHeader,
-    AppFooter
-  }
+    AppFooter,
+  },
 };
 </script>
 
@@ -35,5 +35,4 @@ footer {
   margin-top: 3em;
   padding-bottom: 2em;
 }
-
 </style>

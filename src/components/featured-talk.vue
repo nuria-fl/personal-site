@@ -1,7 +1,12 @@
 <template>
   <section class="featured-talk">
     <div class="featured-talk__video">
-      <iframe src="https://www.youtube.com/embed/B8B5ZVnPvRU" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+      <iframe
+        src="https://www.youtube.com/embed/B8B5ZVnPvRU"
+        frameborder="0"
+        allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
+        allowfullscreen
+      ></iframe>
     </div>
     <TalkInfo :talk="talk" />
   </section>
@@ -11,21 +16,19 @@
 import TalkInfo from "~/components/talk-info";
 
 export default {
+  components: {
+    TalkInfo,
+  },
   props: {
     talk: {
       type: Object,
-      required: true
-    }
+      required: true,
+    },
   },
-  components: {
-    TalkInfo
-  }
 };
 </script>
 
 <style lang="scss" scoped>
-@import "~/assets/variables";
-
 .featured-talk {
   margin-bottom: 3rem;
   &__video {

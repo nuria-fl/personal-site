@@ -20,7 +20,7 @@ import Layout from "~/layouts/Default";
 
 export default {
   components: {
-    Layout
+    Layout,
   },
   metaInfo() {
     return {
@@ -29,19 +29,21 @@ export default {
         {
           key: "description",
           name: "description",
-          content: this.$static.metadata.siteDescription
-        }
-      ]
+          content: this.$static.metadata.siteDescription,
+        },
+      ],
     };
-  }
+  },
 };
 </script>
 
 <style lang="scss" scoped>
-.fade-enter-active, .fade-leave-active {
-  transition: opacity .5s;
+.fade-enter-active,
+.fade-leave-active {
+  transition: opacity 0.5s;
 }
-.fade-enter, .fade-leave-to {
+.fade-enter,
+.fade-leave-to {
   opacity: 0;
 }
 </style>

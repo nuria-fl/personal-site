@@ -4,9 +4,15 @@
       <nav class="nav">
         <div class="nav__home">
           <transition name="home-logo">
-            <g-link v-show="!isHome"  to="/" aria-label="Home">
-              <svg width="68" height="68" fill="none" xmlns="http://www.w3.org/2000/svg">
-                <circle cx="34" cy="34" r="34" fill="#C3E8BD"/><circle cx="38.5" cy="38.5" r="24.5" fill="#FF82A9"/>
+            <g-link v-show="!isHome" to="/" aria-label="Home">
+              <svg
+                width="68"
+                height="68"
+                fill="none"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <circle cx="34" cy="34" r="34" fill="#C3E8BD" />
+                <circle cx="38.5" cy="38.5" r="24.5" fill="#FF82A9" />
               </svg>
             </g-link>
           </transition>
@@ -27,7 +33,7 @@
 export default {
   data() {
     return {
-      isHome: true
+      isHome: true,
     };
   },
   watch: {
@@ -35,15 +41,13 @@ export default {
       handler() {
         this.isHome = this.$route.name === "home";
       },
-      immediate: true
-    }
-  }
+      immediate: true,
+    },
+  },
 };
 </script>
 
 <style lang="scss" scoped>
-@import "~/assets/variables";
-
 .header {
   margin-bottom: 3rem;
   padding: 2rem 0 2rem;
@@ -71,9 +75,9 @@ export default {
       }
       circle {
         transform-origin: 70% 70%;
-        transition: all .5s;
+        transition: all 0.5s;
         &:last-child {
-          transition-delay: .1s;
+          transition-delay: 0.1s;
         }
       }
       &:hover {
@@ -87,7 +91,7 @@ export default {
 
   &__link {
     display: inline-block;
-    padding: 0 .1rem;
+    padding: 0 0.1rem;
     margin-left: 2.5em;
     border-bottom: 3px solid transparent;
     text-decoration: none;
@@ -106,15 +110,17 @@ export default {
   }
 }
 
-.home-logo-enter-active, .home-logo-leave-active {
+.home-logo-enter-active,
+.home-logo-leave-active {
   visibility: visible;
-  transition: all .5s;
+  transition: all 0.5s;
 
   circle {
     transform: scale(1) !important;
   }
 }
-.home-logo-enter, .home-logo-leave-to {
+.home-logo-enter,
+.home-logo-leave-to {
   visibility: hidden;
   circle {
     transform: scale(0) !important;
