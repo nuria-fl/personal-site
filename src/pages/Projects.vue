@@ -1,5 +1,5 @@
 <template>
-  <Layout page-title="Hi! I have a few projects." page-description="I like to develop videogames in my free time" >
+  <div>
     <section>
       <h2>My games</h2>
       <div class="projects projects--main">
@@ -14,7 +14,7 @@
         <Project v-for="game in gamejams" :key="game.title" :project="game" />
       </div>
     </section>
-  </Layout>
+  </div>
 </template>
 
 <page-query>

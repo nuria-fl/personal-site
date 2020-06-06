@@ -50,7 +50,7 @@ export default {
   right: 0;
   margin-top: 4rem;
   padding: 1rem 0;
-  background: $text-color;
+  background: $background-dark-color;
   color: #fff;
   text-align: center;
 }

@@ -24,12 +24,15 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+@import "~/assets/variables";
+
 .featured-talk {
   margin-bottom: 3rem;
   &__video {
     position: relative;
     padding-top: 56%;
     margin-bottom: 1rem;
+    background: $secondary-color;
     iframe {
       position: absolute;
       top: 0;

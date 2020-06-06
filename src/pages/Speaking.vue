@@ -1,5 +1,5 @@
 <template>
-  <Layout page-title="Hi! I’m a speaker." page-description="I like to speak at meetups and conferences">
+  <div>
     <FeaturedTalk :talk="featured" />
 
     <ul class="talks">
@@ -7,7 +7,7 @@
         <Talk :talk="talk" />
       </li>
     </ul>
-  </Layout>
+  </div>
 </template>
 
 <page-query>

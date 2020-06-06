@@ -1,6 +1,6 @@
 <template>
   <div>
-    <AppHeader :pageTitle="pageTitle" :pageDescription="pageDescription" :image="image" />
+    <AppHeader />
     <main class="container">
       <slot/>
     </main>
@@ -21,19 +21,6 @@ import AppHeader from "~/components/header";
 import AppFooter from "~/components/footer";
 
 export default {
-  props: {
-    image: {
-      type: String
-    },
-    pageTitle: {
-      type: String,
-      required: true
-    },
-    pageDescription: {
-      type: String,
-      required: true
-    }
-  },
   components: {
     AppHeader,
     AppFooter

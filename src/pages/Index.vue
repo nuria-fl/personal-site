@@ -1,9 +1,26 @@
 <template>
-  <Layout page-title="Hi! I'm Núria." page-description="I’m a developer, working mostly on front-end">
+  <div>
+    <section class="container hero">
+      <transition name="hero-logo" appear>
+        <HeroLogo v-show="showLogo" />
+      </transition>
+      <div>
+        <h1 class="title">Hi!<br>I'm <strong>Núria</strong>.</h1>
+        <h2 class="title title--sub">
+          I’m a developer,<br>working mostly on <strong>front-end</strong>.
+        </h2>
+      </div>
+    </section>
+
+    <div class="separator">
+      <hr>
+    </div>
+
+    <section class="container container--sm">
       <h2>About me</h2>
 
       <p>
-        I love JavaScript and Vue.js. Recently I've started learning Rust and I love it because it's super weird and difficult.
+        I’m currently working as a Tech Lead at <a href="https://www.meetup.com/js-coders/" rel="noopener noreferrer nofollow">Codegram</a>. I love CSS, JavaScript and Vue.js, but I also like to meddle with back-end stuff, from Node to Rust and currently learning Elixir.
       </p>
 
       <p>
@@ -27,21 +44,101 @@
       <p>
         On the personal side, I love food, craft beer and playing videogames. I sometimes develop games too, you can check them <g-link to="/projects">here</g-link>.
       </p>
+    </section>
 
-  </Layout>
+  </div>
 </template>
 
 <script>
+import HeroLogo from "~/components/hero-logo";
+
 export default {
+  components: {
+    HeroLogo
+  },
   metaInfo: {
     title: "Home",
     description: "I’m a developer, working mostly on front-end"
+  },
+  data() {
+    return {
+      showLogo: true
+    };
+  },
+  beforeRouteLeave(to, from, next) {
+    this.showLogo = false;
+    this.$nextTick(() => {
+      return next();
+    });
   }
 };
 </script>
 
-<style>
-.home-links a {
-  margin-right: 1rem;
+<style lang="scss" scoped>
+@import "~/assets/variables";
+
+.separator {
+  margin: 4.8rem 0;
+  display: flex;
+  justify-content: center;
+  hr,
+  &:before,
+  &:after {
+    width: 1.25rem;
+    height: 1.25rem;
+    border-radius: 50%;
+    margin: 0 0.325rem;
+  }
+  &:before,
+  &:after {
+    content: '';
+    background: $secondary-color;
+  }
+  hr {
+    border: none;
+    background: $primary-color;
+  }
+}
+
+.hero {
+  display: flex;
+  justify-content: space-between;
+  /deep/ svg {
+    transition: all .7s;
+  }
+  /deep/ circle {
+    transition: all .7s;
+    transform-origin: 70% 70%;
+    transform: scale(1);
+    &:last-child {
+      transition-delay: .3s;
+    }
+  }
+}
+
+.title {
+  font-size: 3rem;
+  line-height: 1;
+  strong {
+    font-weight: 400;
+    color: $primary-text-color;
+  }
+  &--sub {
+    line-height: 1.2;
+    font-size: 2.25rem;
+  }
+}
+
+.hero-logo-enter-active, .hero-logo-leave-active {
+  visibility: visible;
+  /deep/ circle {
+    transform: scale(1);
+  }
+}
+.hero-logo-enter, .hero-logo-leave-to {
+  visibility: hidden;
+  /deep/ circle {
+    transform: scale(0);
+  }
 }
 </style>

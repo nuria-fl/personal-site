@@ -1,5 +1,5 @@
 <template>
-  <Layout page-title="Live">
+  <div>
     For now, play at <a href="https://nuria-live.netlify.com/">Live</a>
-  </Layout>
+  </div>
 </template>

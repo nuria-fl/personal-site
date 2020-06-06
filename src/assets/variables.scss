@@ -1,7 +1,16 @@
 // colors
-$primary-color: #ff82a9;
-$background-color: #fff;
-$text-color: #222;
+$_wild-watermelon: #ff4782;
+$_tickle-me-pink: #ff82a9;
+$_celadon: #c3e8bd;
+$_panache: #f0f8ef;
+$_mine-shaft: #222;
+
+$primary-color: $_tickle-me-pink;
+$primary-text-color: $_wild-watermelon;
+$secondary-color: $_celadon;
+$background-color: $_panache;
+$background-dark-color: $_mine-shaft;
+$text-color: $_mine-shaft;
 
 // Media queries
 $mq-xxl: 1600px;
@@ -9,3 +18,6 @@ $mq-xl: 1200px;
 $mq-lg: 992px;
 $mq-md: 768px;
 $mq-sm: 576px;
+
+$width-max: 54.25rem;
+$width-sm: 41.5rem;
