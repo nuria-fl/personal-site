@@ -130,9 +130,9 @@ export default {
     transition: all 0.7s;
     transform-origin: 70% 70%;
     transform: scale(1);
-    &:last-child {
-      transition-delay: 0.3s;
-    }
+  }
+  /deep/ mask circle {
+    transition-delay: 0.3s;
   }
   &__title {
     font-size: 3rem;
@@ -161,6 +161,15 @@ export default {
   visibility: hidden;
   /deep/ circle {
     transform: scale(0);
+  }
+}
+.hero-logo-leave-active,
+.hero-logo-leave-to {
+  /deep/ circle {
+    transition-delay: 0.3s;
+  }
+  /deep/ mask circle {
+    transition-delay: 0s;
   }
 }
 </style>

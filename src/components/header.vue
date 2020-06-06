@@ -126,4 +126,14 @@ export default {
     transform: scale(0) !important;
   }
 }
+
+.home-logo-leave-active,
+.home-logo-leave-to {
+  circle:first-child {
+    transition-delay: 0.3s;
+  }
+  circle:last-child {
+    transition-delay: 0s;
+  }
+}
 </style>
