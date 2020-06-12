@@ -81,6 +81,10 @@ export default {
       /deep/ a {
         color: #fff;
       }
+      img {
+        height: 100%;
+        object-fit: cover;
+      }
     }
   }
 }

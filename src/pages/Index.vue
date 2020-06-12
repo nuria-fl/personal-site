@@ -1,8 +1,8 @@
 <template>
   <div>
     <section class="container hero">
-      <div>
-        <transition name="hero-logo">
+      <div class="hero__image">
+        <transition name="hero-logo" @after-leave="afterLeave">
           <HeroLogo v-show="showLogo" />
         </transition>
       </div>
@@ -28,17 +28,13 @@
           rel="noopener noreferrer nofollow"
           >Codegram</a
         >. I love CSS, JavaScript and Vue.js, but I also like to meddle with
-        back-end stuff, from Node to Rust and currently learning Elixir.
-      </p>
-
-      <p>
-        I don't have a blog <em>*gasp*</em> but I often write in
+        back-end stuff, from Node to Rust and currently learning Elixir. I like
+        to write about about all things dev-related,
         <a
           href="https://www.codegram.com/blog/author/nuria-soriano"
           rel="noopener noreferrer nofollow"
-          >Codegram's blog</a
-        >
-        (that's where I work).
+          >check my articles</a
+        >.
       </p>
 
       <p>
@@ -119,11 +115,19 @@ export default {
 }
 
 .hero {
-  @media screen and (min-width: $mq-md) {
-    display: flex;
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  @media screen and (min-width: $mq-lg) {
     justify-content: space-between;
   }
+  &__image {
+    height: 17.8rem;
+    width: 17.8rem;
+    max-width: 100%;
+  }
   /deep/ svg {
+    max-width: 100%;
     transition: all 0.7s;
   }
   /deep/ circle {

@@ -21,7 +21,7 @@ export default {
       links: [
         {
           name: "Twitter",
-          url: "https://twitter.com/pincfloit",
+          url: "https://twitter.com/nuria_codes",
         },
         {
           name: "GitHub",
@@ -30,10 +30,6 @@ export default {
         {
           name: "Itch.io",
           url: "https://nuria.itch.io/",
-        },
-        {
-          name: "Medium",
-          url: "https://medium.com/@pincfloit",
         },
         {
           name: "Dev.to",

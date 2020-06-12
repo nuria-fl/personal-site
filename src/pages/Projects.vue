@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div class="container">
     <section>
       <h2>My games</h2>
       <div class="projects projects--main">
@@ -71,6 +71,7 @@ img {
 }
 
 .projects {
+  margin-bottom: 4rem;
   @media screen and (min-width: $mq-sm) {
     display: grid;
     grid-template-columns: 1fr 1fr;
@@ -81,5 +82,8 @@ img {
       }
     }
   }
+}
+h2 {
+  font-size: 2rem;
 }
 </style>

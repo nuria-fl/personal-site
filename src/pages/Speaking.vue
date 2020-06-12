@@ -1,5 +1,6 @@
 <template>
-  <div>
+  <div class="container">
+    <h1>Speaking</h1>
     <FeaturedTalk :talk="featured" />
 
     <ul class="talks">
@@ -63,5 +64,8 @@ export default {
   list-style: none;
   margin: 0;
   padding: 0;
+}
+h1 {
+  font-size: 2rem;
 }
 </style>
