@@ -23,13 +23,42 @@ export default {
     Layout,
   },
   metaInfo() {
+    const siteUrl =
+      process.env.BRANCH == "master"
+        ? process.env.URL
+        : process.env.DEPLOY_URL || "http://localhost:8080";
     return {
-      title: this.$static.metadata.siteName,
+      title: "Hi! I'm Núria",
       meta: [
         {
-          key: "description",
+          name: "twitter:title",
+          content: "Hi! I'm Núria",
+          vmid: "twitter:title",
+        },
+        {
+          vmid: "description",
           name: "description",
-          content: this.$static.metadata.siteDescription,
+          content: "I'm a developer, working mostly on front-end.",
+        },
+        {
+          vmid: "twitter:description",
+          name: "twitter:description",
+          content: "I'm a developer, working mostly on front-end.",
+        },
+        {
+          vmid: "og:image",
+          property: "og:image",
+          content: `${siteUrl}/social.png`,
+        },
+        {
+          name: "twitter:card",
+          content: "summary_large_image",
+          vmid: "twitter:card",
+        },
+        {
+          name: "twitter:site",
+          content: "@nuria_codes",
+          vmid: "twitter:site",
         },
       ],
     };
