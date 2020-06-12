@@ -1,13 +1,18 @@
 <template>
-  <Layout page-title="Hi! I’m a speaker." page-description="I like to speak at meetups and conferences">
+  <div class="container">
+    <h1>Speaking</h1>
     <FeaturedTalk :talk="featured" />
 
     <ul class="talks">
-      <li v-for="talk in talksList" :key="`${talk.conf}-${talk.title}`" class="talks__item">
+      <li
+        v-for="talk in talksList"
+        :key="`${talk.conf}-${talk.title}`"
+        class="talks__item"
+      >
         <Talk :talk="talk" />
       </li>
     </ul>
-  </Layout>
+  </div>
 </template>
 
 <page-query>
@@ -34,32 +39,33 @@ import Talk from "~/components/talk";
 
 export default {
   metaInfo: {
-    title: "Speaking"
+    title: "Speaking",
   },
   components: {
     Talk,
-    FeaturedTalk
+    FeaturedTalk,
   },
   computed: {
     talks() {
-      return this.$page.talks.edges.map(e => e.node);
+      return this.$page.talks.edges.map((e) => e.node);
     },
     talksList() {
-      return this.talks.filter(talk => !talk.featured);
+      return this.talks.filter((talk) => !talk.featured);
     },
     featured() {
-      return this.talks.find(talk => talk.featured);
-    }
-  }
+      return this.talks.find((talk) => talk.featured);
+    },
+  },
 };
 </script>
 
 <style lang="scss" scoped>
-@import "~/assets/variables";
-
 .talks {
   list-style: none;
   margin: 0;
   padding: 0;
+}
+h1 {
+  font-size: 2rem;
 }
 </style>

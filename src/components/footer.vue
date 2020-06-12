@@ -1,8 +1,13 @@
 <template>
   <footer class="footer">
     <div class="container">
-      <template v-for="link, i in links">
-        <a :href="link.url" rel="noopener noreferrer nofollow" :key="link.name">{{ link.name }}</a>
+      <template v-for="(link, i) in links">
+        <a
+          :key="link.name"
+          :href="link.url"
+          rel="noopener noreferrer nofollow"
+          >{{ link.name }}</a
+        >
         <template v-if="i < links.length - 1">&nbsp; · &nbsp;</template>
       </template>
     </div>
@@ -16,33 +21,27 @@ export default {
       links: [
         {
           name: "Twitter",
-          url: "https://twitter.com/pincfloit"
+          url: "https://twitter.com/nuria_codes",
         },
         {
           name: "GitHub",
-          url: "http://github.com/nuria-fl/"
+          url: "http://github.com/nuria-fl/",
         },
         {
           name: "Itch.io",
-          url: "https://nuria.itch.io/"
-        },
-        {
-          name: "Medium",
-          url: "https://medium.com/@pincfloit"
+          url: "https://nuria.itch.io/",
         },
         {
           name: "Dev.to",
-          url: "https://dev.to/pincfloit"
-        }
-      ]
+          url: "https://dev.to/pincfloit",
+        },
+      ],
     };
-  }
+  },
 };
 </script>
 
 <style lang="scss" scoped>
-@import "~/assets/variables";
-
 .footer {
   position: absolute;
   bottom: 0;
@@ -50,7 +49,7 @@ export default {
   right: 0;
   margin-top: 4rem;
   padding: 1rem 0;
-  background: $text-color;
+  background: $background-dark-color;
   color: #fff;
   text-align: center;
 }

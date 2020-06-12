@@ -1,9 +1,14 @@
 <template>
-  <Layout page-title="Hi! I have a few projects." page-description="I like to develop videogames in my free time" >
+  <div class="container">
     <section>
       <h2>My games</h2>
       <div class="projects projects--main">
-        <Project v-for="game, i in games" :key="game.title" :project="game" :featured="i === 0" />
+        <Project
+          v-for="(game, i) in games"
+          :key="game.title"
+          :project="game"
+          :featured="i === 0"
+        />
       </div>
     </section>
 
@@ -14,7 +19,7 @@
         <Project v-for="game in gamejams" :key="game.title" :project="game" />
       </div>
     </section>
-  </Layout>
+  </div>
 </template>
 
 <page-query>
@@ -39,35 +44,34 @@ import Project from "~/components/project";
 export default {
   metaInfo: {
     title: "Projects",
-    description: "I like to develop videogames in my free time"
+    description: "I like to develop videogames in my free time",
   },
   components: {
-    Project
+    Project,
   },
   computed: {
     projectsList() {
-      return this.$page.projects.edges.map(e => e.node);
+      return this.$page.projects.edges.map((e) => e.node);
     },
     gamejams() {
       return this.projectsList.filter(
-        project => project.category === "gamejam"
+        (project) => project.category === "gamejam"
       );
     },
     games() {
-      return this.projectsList.filter(project => project.category === "game");
-    }
-  }
+      return this.projectsList.filter((project) => project.category === "game");
+    },
+  },
 };
 </script>
 
 <style lang="scss" scoped>
-@import "~/assets/variables";
-
 img {
   max-width: 100%;
 }
 
 .projects {
+  margin-bottom: 4rem;
   @media screen and (min-width: $mq-sm) {
     display: grid;
     grid-template-columns: 1fr 1fr;
@@ -79,5 +83,7 @@ img {
     }
   }
 }
-
+h2 {
+  font-size: 2rem;
+}
 </style>

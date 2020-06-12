@@ -1,8 +1,8 @@
 <template>
   <div>
-    <AppHeader :pageTitle="pageTitle" :pageDescription="pageDescription" :image="image" />
-    <main class="container">
-      <slot/>
+    <AppHeader />
+    <main>
+      <slot />
     </main>
     <AppFooter />
   </div>
@@ -21,23 +21,10 @@ import AppHeader from "~/components/header";
 import AppFooter from "~/components/footer";
 
 export default {
-  props: {
-    image: {
-      type: String
-    },
-    pageTitle: {
-      type: String,
-      required: true
-    },
-    pageDescription: {
-      type: String,
-      required: true
-    }
-  },
   components: {
     AppHeader,
-    AppFooter
-  }
+    AppFooter,
+  },
 };
 </script>
 
@@ -48,5 +35,4 @@ footer {
   margin-top: 3em;
   padding-bottom: 2em;
 }
-
 </style>

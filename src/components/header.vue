@@ -1,125 +1,139 @@
 <template>
-  <header class="header header--dark" :style="`backgroundImage: url(/speaker-img.jpeg)`">
-    <div class="container header__content">
+  <header class="header">
+    <div class="container">
       <nav class="nav">
-        <g-link class="nav__link" to="/">Home</g-link>
-        <g-link class="nav__link" to="/speaking/">Speaking</g-link>
-        <g-link class="nav__link" to="/projects/">Projects</g-link>
+        <div class="nav__home">
+          <transition name="home-logo">
+            <g-link v-show="!isHome" to="/" aria-label="Home">
+              <svg
+                width="68"
+                height="68"
+                fill="none"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <circle cx="34" cy="34" r="34" fill="#C3E8BD" />
+                <circle cx="38.5" cy="38.5" r="24.5" fill="#FF82A9" />
+              </svg>
+            </g-link>
+          </transition>
+        </div>
+
+        <div class="nav__sections">
+          <g-link class="nav__link" to="/speaking/">Speaking</g-link>
+          <!-- <g-link class="nav__link" to="/speaking/">Articles</g-link> -->
+          <g-link class="nav__link" to="/projects/">Projects</g-link>
+          <!-- <g-link class="nav__link" to="/projects/">Contact</g-link> -->
+        </div>
       </nav>
-      <div>
-        <h1 class="header__title">
-          {{ titleParts[0] }}
-          <strong>
-            {{ titleParts[1] }}
-          </strong>
-        </h1>
-        <p class="header__lead">{{ pageDescription }}</p>
-      </div>
     </div>
   </header>
 </template>
 
 <script>
 export default {
-  props: {
-    pageTitle: {
-      type: String,
-      required: true
-    },
-    pageDescription: {
-      type: String,
-      required: true
-    }
+  data() {
+    return {
+      isHome: true,
+    };
   },
-  computed: {
-    titleParts() {
-      const title = this.pageTitle.split(" ");
-
-      return [
-        title.slice(0, title.length - 1).join(" "),
-        title[title.length - 1]
-      ];
-    }
-  }
+  watch: {
+    $route: {
+      handler() {
+        this.isHome = this.$route.name === "home";
+      },
+      immediate: true,
+    },
+  },
 };
 </script>
 
 <style lang="scss" scoped>
-@import "~/assets/variables";
-
 .header {
-  min-height: 20rem;
-  height: 45vh;
   margin-bottom: 3rem;
   padding: 2rem 0 2rem;
-  background: $primary-color;
-  background-size: cover;
-  background-position: center 37%;
-  position: relative;
-  &:before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-      background: -moz-linear-gradient(0deg, rgba(0,0,0,0.7) 0%, rgba(0,0,0,0) 100%);
-      background: -webkit-linear-gradient(0deg, rgba(0,0,0,0.7) 0%, rgba(0,0,0,0) 100%);
-      background: linear-gradient(0deg, rgba(0,0,0,0.7) 0%, rgba(0,0,0,0) 100%);
-  }
-  &--dark {
-    color: #fff;
-  }
-  &__content {
-    height: 100%;
-    position: relative;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    z-index: 1;
-    line-height: 1.2;
-  }
-  &__title {
-    margin-bottom: 0;
-    font-size: 1.75rem;
-    line-height: 1;
-    strong {
-      display: block;
-      font-weight: 400;
-      font-size: 3rem;
-      color: $primary-color;
-      background: rgba($text-color, .9);
-    }
-  }
-  &__lead {
-    margin: 1rem 0 0;
-    font-size: 1.5rem;
-  }
+  border-top: 8px solid $background-dark-color;
 }
 
 .nav {
-  align-self: center;
-  @media screen and (min-width: $mq-sm) {
-    align-self: flex-end;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  &__sections {
+    display: flex;
+    justify-content: flex-end;
   }
+
+  &__home {
+    width: 4.25rem;
+    height: 4.25rem;
+    a {
+      display: block;
+      border-bottom: none;
+      svg {
+        overflow: visible;
+      }
+      circle {
+        transform-origin: 70% 70%;
+        transition: all 0.5s;
+        &:last-child {
+          transition-delay: 0.1s;
+        }
+      }
+      &:hover {
+        background: none;
+        circle {
+          transform: scale(1.15);
+        }
+      }
+    }
+  }
+
   &__link {
     display: inline-block;
-    padding: 0 .1rem;
-    margin-left: 1em;
-    color: #fff;
+    padding: 0 0.1rem;
+    margin-left: 2.5em;
+    border-bottom: 3px solid transparent;
     text-decoration: none;
-    background: rgba($text-color, .8);
+    color: $text-color;
+    font-size: 1.25rem;
     &:first-child {
       margin-left: 0;
     }
     &:hover {
-      background: $primary-color;
-      color: $text-color;
+      border-bottom-color: $primary-color;
+      background: transparent;
     }
     &.active--exact {
-      color: $primary-color;
-      background: rgba($text-color, .8);
+      border-bottom-color: $primary-color;
     }
+  }
+}
+
+.home-logo-enter-active,
+.home-logo-leave-active {
+  visibility: visible;
+  transition: all 0.5s;
+
+  circle {
+    transform: scale(1) !important;
+  }
+}
+.home-logo-enter,
+.home-logo-leave-to {
+  visibility: hidden;
+  circle {
+    transform: scale(0) !important;
+  }
+}
+
+.home-logo-leave-active,
+.home-logo-leave-to {
+  circle:first-child {
+    transition-delay: 0.3s;
+  }
+  circle:last-child {
+    transition-delay: 0s;
   }
 }
 </style>

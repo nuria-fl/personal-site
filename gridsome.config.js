@@ -3,6 +3,16 @@
 
 // Changes here require a server restart.
 // To restart press CTRL + C in terminal and run `gridsome develop`
+const path = require("path");
+
+function addStyleResource(rule) {
+  rule
+    .use("style-resource")
+    .loader("style-resources-loader")
+    .options({
+      patterns: [path.resolve(__dirname, "./src/assets/variables.scss")],
+    });
+}
 
 module.exports = {
   siteName: "Hi, I'm Núria",
@@ -11,15 +21,22 @@ module.exports = {
       use: "@gridsome/source-filesystem",
       options: {
         typeName: "Talk",
-        path: "./content/talks/*.json"
-      }
+        path: "./content/talks/*.json",
+      },
     },
     {
       use: "@gridsome/source-filesystem",
       options: {
         typeName: "Project",
-        path: "./content/projects/*.md"
-      }
-    }
-  ]
+        path: "./content/projects/*.md",
+      },
+    },
+  ],
+  chainWebpack: (config) => {
+    // Load variables for all vue-files
+    const types = ["vue-modules", "vue", "normal-modules", "normal"];
+    types.forEach((type) =>
+      addStyleResource(config.module.rule("scss").oneOf(type))
+    );
+  },
 };
