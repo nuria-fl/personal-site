@@ -8,4 +8,4 @@ date: 2019-07-01
 
 The project I'm working on currently. A point & click adventure game with a pinch of survival mechanics. Made with Phaser **and** Vue.js, because you can have the best of both worlds!
 
-Read the [development diary](https://medium.com/@pincfloit/game-development-diary-i-32dd6a4021ef)
+Read the [development diary](https://dev.to/pincfloit/game-development-diary-i-codename-radio-liberty-51lk)

@@ -84,6 +84,6 @@ img {
   }
 }
 h2 {
-  font-size: 2rem;
+  font-size: var(--title-size);
 }
 </style>

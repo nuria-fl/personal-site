@@ -30,6 +30,10 @@ body {
   background: $background-color;
   color: $text-color;
   font-family: "PT Serif", sans-serif;
+  --title-size: #{$title-size};
+  @media screen and (min-width: $mq-sm) {
+    --title-size: #{$title-size-desktop};
+  }
 }
 
 h1,
