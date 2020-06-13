@@ -49,7 +49,7 @@ export default {
   display: flex;
   align-items: center;
   padding: 1rem 0;
-  border-bottom: 1px solid rgba($text-color, 0.2);
+  border-bottom: 1px solid $secondary-color;
   font-size: 1rem;
   &__thumb {
     display: flex;

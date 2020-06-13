@@ -66,6 +66,6 @@ export default {
   padding: 0;
 }
 h1 {
-  font-size: 2rem;
+  font-size: var(--title-size);
 }
 </style>

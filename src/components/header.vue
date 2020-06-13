@@ -6,8 +6,7 @@
           <transition name="home-logo">
             <g-link v-show="!isHome" to="/" aria-label="Home">
               <svg
-                width="68"
-                height="68"
+                viewBox="0 0 68 68"
                 fill="none"
                 xmlns="http://www.w3.org/2000/svg"
               >
@@ -20,7 +19,7 @@
 
         <div class="nav__sections">
           <g-link class="nav__link" to="/speaking/">Speaking</g-link>
-          <!-- <g-link class="nav__link" to="/speaking/">Articles</g-link> -->
+          <g-link class="nav__link" to="/articles/">Articles</g-link>
           <g-link class="nav__link" to="/projects/">Projects</g-link>
           <!-- <g-link class="nav__link" to="/projects/">Contact</g-link> -->
         </div>
@@ -65,8 +64,12 @@ export default {
   }
 
   &__home {
-    width: 4.25rem;
-    height: 4.25rem;
+    width: 2.5rem;
+    height: 2.5rem;
+    @media screen and (min-width: $mq-sm) {
+      width: 4.25rem;
+      height: 4.25rem;
+    }
     a {
       display: block;
       border-bottom: none;
@@ -92,11 +95,15 @@ export default {
   &__link {
     display: inline-block;
     padding: 0 0.1rem;
-    margin-left: 2.5em;
+    margin-left: 1em;
     border-bottom: 3px solid transparent;
     text-decoration: none;
     color: $text-color;
-    font-size: 1.25rem;
+    font-size: 1.1rem;
+    @media screen and (min-width: $mq-sm) {
+      margin-left: 2.5em;
+      font-size: 1.25rem;
+    }
     &:first-child {
       margin-left: 0;
     }

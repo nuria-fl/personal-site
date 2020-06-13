@@ -31,6 +31,15 @@ module.exports = {
         path: "./content/projects/*.md",
       },
     },
+    {
+      use: "@perlatsp/gridsome-source-devto",
+      options: {
+        typeName: "Article",
+        username: "pincfloit",
+        apiKey: process.env.DEVTO_API_KEY || "wuiLFieHFFbCBFqjBdiNpDiZ",
+        route: "/articles/:slug",
+      },
+    },
   ],
   chainWebpack: (config) => {
     // Load variables for all vue-files
