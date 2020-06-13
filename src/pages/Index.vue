@@ -30,11 +30,7 @@
         >. I love CSS, JavaScript and Vue.js, but I also like to meddle with
         back-end stuff, from Node to Rust and currently learning Elixir. I like
         to write about all things dev-related,
-        <a
-          href="https://www.codegram.com/blog/author/nuria-soriano"
-          rel="noopener noreferrer nofollow"
-          >check my articles</a
-        >.
+        <g-link to="/articles">check my articles</g-link>.
       </p>
 
       <p>
