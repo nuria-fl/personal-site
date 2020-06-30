@@ -7,7 +7,22 @@
       <textarea name="message"></textarea>
     </form>
 
-    <form @submit.prevent="handleSubmit">
+    <template v-if="success">
+      <p>
+        Your message has been sent!<br />
+        I'll get back to you as soon as possible.
+      </p>
+      <g-link to="/" type="submit">Take me home</g-link>
+    </template>
+
+    <form v-else @submit.prevent="handleSubmit">
+      <template v-if="error">
+        <p>
+          There was an error submitting the form.<br />
+          Please try again in a while, or reach out to me via
+          <a href="https://twitter.com/nuria_codes">twitter</a>.
+        </p>
+      </template>
       <p>
         <label
           >Name:
@@ -59,6 +74,8 @@
 export default {
   data() {
     return {
+      error: false,
+      success: false,
       form: {
         name: "",
         email: "",
@@ -84,6 +101,7 @@ export default {
     },
     handleSubmit() {
       if (this.isValid) {
+        this.error = false;
         fetch("/", {
           headers: { "Content-Type": "application/x-www-form-urlencoded" },
           body: this.encode({
@@ -92,11 +110,15 @@ export default {
           }),
           method: "post",
         })
-          .then((response) => {
-            console.log(response);
+          .then(({ ok }) => {
+            if (ok) {
+              this.success = true;
+            } else {
+              this.error = true;
+            }
           })
           .catch((e) => {
-            console.error(e);
+            this.error = true;
           });
       }
     },
