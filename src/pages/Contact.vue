@@ -1,26 +1,49 @@
 <template>
   <section class="container container--sm">
     <h1>Contact</h1>
-    <form name="contact" method="POST" data-netlify="true">
+    <form name="contact" data-netlify="true" hidden>
+      <input type="text" name="name" />
+      <input type="email" name="email" />
+      <textarea name="message"></textarea>
+    </form>
+
+    <form @submit.prevent="handleSubmit">
       <p>
         <label
-          >Name: <input class="input" type="text" name="name" required
+          >Name:
+          <input
+            v-model="form.name"
+            class="input"
+            type="text"
+            name="name"
+            required
         /></label>
       </p>
       <p>
         <label
-          >Email: <input class="input" type="email" name="email" required
+          >Email:
+          <input
+            v-model="form.email"
+            class="input"
+            type="email"
+            name="email"
+            required
         /></label>
       </p>
       <p>
         <label
           >Message:
-          <textarea class="input" name="message" required></textarea>
+          <textarea
+            v-model="form.message"
+            class="input"
+            name="message"
+            required
+          ></textarea>
         </label>
       </p>
       <p class="checkbox">
         <label>
-          <input type="checkbox" required />
+          <input v-model="terms" type="checkbox" required />
           I have read and accept the
           <g-link to="/privacy">privacy policy</g-link>.
         </label>
@@ -33,7 +56,52 @@
 </template>
 
 <script>
-export default {};
+export default {
+  data() {
+    return {
+      form: {
+        name: "",
+        email: "",
+        message: "",
+      },
+      terms: false,
+    };
+  },
+  computed: {
+    isValid() {
+      return (
+        this.form.name && this.form.email && this.form.message && this.terms
+      );
+    },
+  },
+  methods: {
+    encode(data) {
+      return Object.keys(data)
+        .map(
+          (key) => `${encodeURIComponent(key)}=${encodeURIComponent(data[key])}`
+        )
+        .join("&");
+    },
+    handleSubmit() {
+      if (this.isValid) {
+        fetch("/", {
+          headers: { "Content-Type": "application/x-www-form-urlencoded" },
+          body: this.encode({
+            "form-name": "contact",
+            ...this.form,
+          }),
+          method: "post",
+        })
+          .then((response) => {
+            console.log(response);
+          })
+          .catch((e) => {
+            console.error(e);
+          });
+      }
+    },
+  },
+};
 </script>
 
 <style lang="scss" scoped>
