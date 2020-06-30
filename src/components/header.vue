@@ -21,7 +21,21 @@
           <g-link class="nav__link" to="/speaking/">Speaking</g-link>
           <g-link class="nav__link" to="/articles/">Articles</g-link>
           <g-link class="nav__link" to="/projects/">Projects</g-link>
-          <!-- <g-link class="nav__link" to="/projects/">Contact</g-link> -->
+          <g-link class="nav__link" to="/contact/">
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              height="24"
+              viewBox="0 0 24 24"
+              width="24"
+              aria-hidden="true"
+            >
+              <path d="M0 0h24v24H0V0z" fill="none" />
+              <path
+                d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 14H4V8l8 5 8-5v10zm-8-7L4 6h16l-8 5z"
+              />
+            </svg>
+            <span class="label">Contact</span>
+          </g-link>
         </div>
       </nav>
     </div>
@@ -95,11 +109,11 @@ export default {
   &__link {
     display: inline-block;
     padding: 0 0.1rem;
-    margin-left: 1em;
+    margin-left: 0.9em;
     border-bottom: 3px solid transparent;
     text-decoration: none;
     color: $text-color;
-    font-size: 1.1rem;
+    font-size: 1.05rem;
     @media screen and (min-width: $mq-sm) {
       margin-left: 2.5em;
       font-size: 1.25rem;
@@ -113,6 +127,13 @@ export default {
     }
     &.active--exact {
       border-bottom-color: $primary-color;
+    }
+    svg {
+      display: none;
+      @media screen and (max-width: $mq-sm) {
+        display: block;
+        width: 1.1rem;
+      }
     }
   }
 }
@@ -141,6 +162,19 @@ export default {
   }
   circle:last-child {
     transition-delay: 0s;
+  }
+}
+
+.label {
+  @media screen and (max-width: $mq-sm) {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    border: 0;
   }
 }
 </style>

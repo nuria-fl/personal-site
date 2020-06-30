@@ -117,7 +117,7 @@ export default {
               this.error = true;
             }
           })
-          .catch((e) => {
+          .catch(() => {
             this.error = true;
           });
       }
