@@ -2,7 +2,7 @@
 title: "Radio Liberty"
 image: ./radio-liberty.png
 category: "game"
-link: https://medium.com/@pincfloit/game-development-diary-i-32dd6a4021ef
+link: https://radio-liberty.netlify.app/
 date: 2019-07-01
 ---
 

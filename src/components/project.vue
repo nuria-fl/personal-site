@@ -60,7 +60,6 @@ export default {
         right: 0;
         padding: 1.25rem;
         color: #fff;
-        pointer-events: none;
         background: rgb(0, 0, 0);
         background: -moz-linear-gradient(
           0deg,
