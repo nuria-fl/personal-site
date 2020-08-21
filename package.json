@@ -13,7 +13,7 @@
     "@gridsome/transformer-remark": "^0.4.0",
     "@perlatsp/gridsome-source-devto": "0.0.1",
     "dayjs": "^1.8.17",
-    "gridsome": "^0.7.14",
+    "gridsome": "^0.7.20",
     "node-sass": "^4.13.0",
     "sass-loader": "^8.0.0"
   },
