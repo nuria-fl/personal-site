@@ -22,9 +22,13 @@
       <h2>About me</h2>
 
       <p>
-        I’m currently working as a Tech Lead at
+        I’m currently working as FrontEnd Category Lead at
         <a
-          href="https://www.meetup.com/js-coders/"
+          href="https://codely.tv/"
+          rel="noopener noreferrer nofollow"
+          >Codely</a
+        >, previously tech lead at <a
+          href="https://www.codegram.com/"
           rel="noopener noreferrer nofollow"
           >Codegram</a
         >. I love CSS, JavaScript and Vue.js, but I also like to meddle with
