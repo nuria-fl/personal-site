@@ -1,0 +1,9 @@
+{
+  "conf": "PEUMConf",
+  "date": "2020-10-17",
+  "title": "Kill the backend: Jamstack i GitHub Actions, més que un deploy",
+  "slides": "https://drive.google.com/file/d/10KU0NqSvQx_ICIDw-c_2SpyV8nmcXEbE/view?usp=sharing",
+  "video": "https://www.youtube.com/watch?v=byB_bTZc7co",
+  "featured": false,
+  "image": "./kill-the-backend-peum.png"
+}
