@@ -37,11 +37,7 @@
 export default {
   computed: {
     articles() {
-      return this.$page.allArticle.edges
-        .map((e) => e.node)
-        .sort((a, b) => {
-          return new Date(a.published_at) < new Date(b.published_at);
-        });
+      return this.$page.allArticle.edges.map((e) => e.node).reverse();
     },
   },
 };
