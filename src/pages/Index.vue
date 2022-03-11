@@ -22,7 +22,7 @@
       <h2>About me</h2>
 
       <p>
-        I’m currently working as FrontEnd Category Lead at
+        I’m currently working as Front End Category Lead at
         <a
           href="https://codely.tv/"
           rel="noopener noreferrer nofollow"
@@ -32,7 +32,7 @@
           rel="noopener noreferrer nofollow"
           >Codegram</a
         >. I love CSS, JavaScript and Vue.js, but I also like to meddle with
-        back-end stuff, from Node to Rust and currently learning Elixir. I like
+        back-end stuff, from Node to Rust. I like
         to write about all things dev-related,
         <g-link to="/articles">check my articles</g-link>.
       </p>
@@ -40,12 +40,7 @@
       <p>
         I like to attend, organize and speak at meetups and conferences. You can
         take a look at the <g-link to="/speaking">talks</g-link> I've given so
-        far. I’m co-organizing a javascript meetup in Barcelona,
-        <a
-          href="https://www.meetup.com/js-coders/"
-          rel="noopener noreferrer nofollow"
-          >JSCoders</a
-        >, and another one in Terrassa,
+        far. I’m currently co-organizing a javascript meetup in my home town, Terrassa:
         <a
           href="https://www.meetup.com/Full-Stack-Valles"
           rel="noopener noreferrer nofollow"
