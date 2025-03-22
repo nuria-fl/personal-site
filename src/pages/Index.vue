@@ -22,31 +22,19 @@
       <h2>About me</h2>
 
       <p>
-        I’m currently working as Front End Category Lead at
+        I’m currently working as a front-end engineer at Voicemod, previously at
         <a
           href="https://codely.tv/"
           rel="noopener noreferrer nofollow"
           >Codely</a
-        >, previously tech lead at <a
+        > and <a
           href="https://www.codegram.com/"
           rel="noopener noreferrer nofollow"
           >Codegram</a
         >. I love CSS, JavaScript and Vue.js, but I also like to meddle with
-        back-end stuff, from Node to Rust. I like
-        to write about all things dev-related,
-        <g-link to="/articles">check my articles</g-link>.
+        back-end stuff, from Node to Rust.
       </p>
 
-      <p>
-        I like to attend, organize and speak at meetups and conferences. You can
-        take a look at the <g-link to="/speaking">talks</g-link> I've given so
-        far. I’m currently co-organizing a javascript meetup in my home town, Terrassa:
-        <a
-          href="https://www.meetup.com/Full-Stack-Valles"
-          rel="noopener noreferrer nofollow"
-          >Full Stack Vallès</a
-        >.
-      </p>
 
       <p>
         On the personal side, I love food, craft beer and playing videogames. I
