@@ -1,0 +1,50 @@
+---
+import Layout from '../layouts/Layout.astro';
+import { getCollection, type CollectionEntry } from 'astro:content';
+import FeaturedTalk from '../components/FeaturedTalk.astro';
+import Talk from '../components/Talk.astro';
+
+// Get all talks from the collection
+const allTalks = await getCollection('talks');
+
+// Sort talks by date (newest first)
+const sortedTalks = allTalks.sort((a: CollectionEntry<'talks'>, b: CollectionEntry<'talks'>) => {
+  return new Date(b.data.date).getTime() - new Date(a.data.date).getTime();
+});
+
+// Find the featured talk
+const featuredTalk = sortedTalks.find((talk: CollectionEntry<'talks'>) => talk.data.featured);
+
+// Get the rest of the talks (excluding the featured one)
+const regularTalks = sortedTalks.filter((talk: CollectionEntry<'talks'>) => !talk.data.featured);
+---
+
+<Layout title="Speaking">
+  <div class="container">
+    <h1>Speaking</h1>
+    
+    {featuredTalk && (
+      <FeaturedTalk talk={featuredTalk.data} />
+    )}
+
+    <ul class="talks">
+      {regularTalks.map((talk: CollectionEntry<'talks'>) => (
+        <li class="talks__item">
+          <Talk talk={talk.data} />
+        </li>
+      ))}
+    </ul>
+  </div>
+</Layout>
+
+<style lang="scss">
+.talks {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+h1 {
+  font-size: var(--title-size);
+}
+</style> 
