@@ -1,0 +1,98 @@
+---
+interface Props {
+  project: {
+    title: string;
+    image: string;
+    link: string;
+  };
+  featured?: boolean;
+}
+
+const { project, featured = false } = Astro.props;
+---
+
+<section class:list={["project", { "project--featured": featured }]}>
+  <a
+    class="project__hero"
+    href={project.link}
+    rel="nofollow noopener noreferrer"
+    target="_blank"
+  >
+    <img src={project.image} alt={project.title} />
+  </a>
+  <div class="project__info">
+    <h3 class="project__title">{project.title}</h3>
+    <div class="project__content">
+      <slot />
+    </div>
+  </div>
+</section>
+
+<style lang="scss">
+.project {
+  margin-bottom: 1.5rem;
+  &__hero {
+    border-bottom: none;
+    &:hover {
+      background: transparent;
+    }
+    img {
+      display: block;
+      width: 100%;
+    }
+  }
+  &__title {
+    margin: 1rem 0 0.75rem;
+  }
+  &__content {
+    :global(p) {
+      margin: 0;
+    }
+    :global(a) {
+      color: inherit;
+    }
+  }
+  @media screen and (min-width: $mq-md) {
+    &--featured {
+      position: relative;
+      height: 30rem;
+      overflow: hidden;
+      .project__info {
+        height: 40%;
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-end;
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        padding: 1.25rem;
+        color: #fff;
+        background: rgb(0, 0, 0);
+        background: -moz-linear-gradient(
+          0deg,
+          rgba(0, 0, 0, 0.6) 0%,
+          rgba(0, 0, 0, 0) 100%
+        );
+        background: -webkit-linear-gradient(
+          0deg,
+          rgba(0, 0, 0, 0.6) 0%,
+          rgba(0, 0, 0, 0) 100%
+        );
+        background: linear-gradient(
+          0deg,
+          rgba(0, 0, 0, 0.6) 0%,
+          rgba(0, 0, 0, 0) 100%
+        );
+      }
+      :global(a) {
+        color: #fff;
+      }
+      img {
+        height: 100%;
+        object-fit: cover;
+      }
+    }
+  }
+}
+</style> 

@@ -1,0 +1,88 @@
+---
+import Layout from '../layouts/Layout.astro';
+import { getCollection, type CollectionEntry } from 'astro:content';
+import Project from '../components/Project.astro';
+
+// Get all projects from the collection
+const allProjects = await getCollection('projects');
+
+// Render all projects' markdown content to HTML
+const processedProjects = await Promise.all(
+  allProjects.map(async (project) => {
+    const { Content } = await project.render();
+    return {
+      ...project,
+      Content
+    };
+  })
+);
+
+// Sort projects by date (newest first)
+const sortedProjects = processedProjects.sort((a, b) => {
+  return new Date(b.data.date).getTime() - new Date(a.data.date).getTime();
+});
+
+// Separate projects by category
+const games = sortedProjects.filter((project) => project.data.category === 'game');
+const gamejams = sortedProjects.filter((project) => project.data.category === 'gamejam');
+---
+
+<Layout title="Projects">
+  <div class="container">
+    <h1>My games</h1>
+    <section>
+      <div class="projects projects--main">
+        {games.map((project, index) => (
+          <Project 
+            project={{
+              title: project.data.title,
+              image: project.data.image,
+              link: project.data.link
+            }}
+            featured={index === 0}
+          >
+            <project.Content />
+          </Project>
+        ))}
+      </div>
+    </section>
+
+    <section>
+      <h2>Game Jams</h2>
+      <p>Smaller, quicker projects, developed in a couple of days.</p>
+      <div class="projects">
+        {gamejams.map((project) => (
+          <Project 
+            project={{
+              title: project.data.title,
+              image: project.data.image,
+              link: project.data.link
+            }}
+          >
+            <project.Content />
+          </Project>
+        ))}
+      </div>
+    </section>
+  </div>
+</Layout>
+
+<style lang="scss">
+.projects {
+  margin-bottom: 4rem;
+  @media screen and (min-width: $mq-sm) {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-column-gap: 1rem;
+    &--main {
+      :global(:first-child) {
+        grid-column: 1 / 3;
+      }
+    }
+  }
+}
+
+h1, h2 {
+  font-size: var(--title-size);
+}
+</style> 
