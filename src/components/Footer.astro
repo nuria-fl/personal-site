@@ -1,0 +1,56 @@
+---
+const links = [
+  {
+    name: "Twitter",
+    url: "https://twitter.com/nuria_codes",
+  },
+  {
+    name: "GitHub",
+    url: "http://github.com/nuria-fl/",
+  },
+  {
+    name: "Itch.io",
+    url: "https://nuria.itch.io/",
+  },
+  {
+    name: "Dev.to",
+    url: "https://dev.to/pincfloit",
+  },
+];
+---
+
+<footer class="footer">
+  <div class="container">
+    {links.map((link, i) => (
+      <>
+        <a href={link.url} rel="noopener noreferrer nofollow">{link.name}</a>
+        {i < links.length - 1 && <>&nbsp; · &nbsp;</>}
+      </>
+    ))}
+  </div>
+</footer>
+
+<style lang="scss">
+.footer {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  margin-top: 4rem;
+  padding: 1rem 0;
+  background: $background-dark-color;
+  color: #fff;
+  text-align: center;
+}
+
+.container {
+  font-size: 1rem;
+}
+
+a {
+  color: #fff;
+  &:hover {
+    color: $text-color;
+  }
+}
+</style> 

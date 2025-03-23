@@ -1,5 +1,6 @@
 @import url("https://fonts.googleapis.com/css2?family=PT+Serif:wght@400;700&display=swap");
 @import "./normalize.scss";
+@import "./variables.scss";
 
 *,
 *:before,
@@ -64,4 +65,4 @@ a:hover {
     width: $width-sm;
     font-size: 1.5rem;
   }
-} 
+}
