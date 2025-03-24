@@ -1,0 +1,162 @@
+---
+import Layout from '../layouts/Layout.astro';
+---
+
+<Layout title="Contact">
+  <div class="container container--sm">
+    <h1>Contact</h1>
+    
+    <!-- Hidden form for Netlify -->
+    <form name="contact" method="POST" data-netlify="true" netlify-honeypot="bot-field" hidden>
+      <input type="text" name="name" />
+      <input type="email" name="email" />
+      <textarea name="message"></textarea>
+    </form>
+    
+    <div id="success-message" style="display: none;">
+      <p>
+        Your message has been sent!<br />
+        I'll get back to you as soon as possible.
+      </p>
+      <a href="/" class="home-link">Take me home</a>
+    </div>
+    
+    <form id="contact-form" name="contact" method="POST" data-netlify="true" netlify-honeypot="bot-field">
+      <div id="error-message" style="display: none;">
+        <p>
+          There was an error submitting the form.<br />
+          Please try again in a while, or reach out to me via social media.
+        </p>
+      </div>
+      
+      <p class="hidden">
+        <label>
+          Don't fill this out if you're human: <input name="bot-field" />
+        </label>
+      </p>
+      <input type="hidden" name="form-name" value="contact" />
+      
+      <p>
+        <label>
+          Name:
+          <input class="input" type="text" name="name" id="name" required />
+        </label>
+      </p>
+      
+      <p>
+        <label>
+          Email:
+          <input class="input" type="email" name="email" id="email" required />
+        </label>
+      </p>
+      
+      <p>
+        <label>
+          Message:
+          <textarea class="input" name="message" id="message" rows="5" required></textarea>
+        </label>
+      </p>
+      
+      <p class="checkbox">
+        <label>
+          <input type="checkbox" name="terms" id="terms" required />
+          I have read and accept the <a href="/privacy">privacy policy</a>.
+        </label>
+      </p>
+      
+      <p>
+        <button type="submit">Send</button>
+      </p>
+    </form>
+  </div>
+</Layout>
+
+<style lang="scss">
+h1 {
+  font-size: var(--title-size);
+  margin-bottom: 2rem;
+}
+
+.hidden {
+  display: none;
+}
+
+.input {
+  display: block;
+  width: 100%;
+  margin: 0.5rem 0;
+  border: 3px solid $secondary-color;
+  padding: 0.5rem;
+  color: #555;
+  font-size: 1.2rem;
+  font-family: "PT Serif", serif;
+}
+
+.checkbox {
+  font-size: 1rem;
+}
+
+button, .home-link {
+  display: inline-block;
+  min-width: 10rem;
+  padding: 0.5rem;
+  border: none;
+  font-family: "PT Serif", serif;
+  background: $primary-color;
+  color: #fff;
+  cursor: pointer;
+  transition: all 0.3s;
+  text-align: center;
+  text-decoration: none;
+  
+  &:hover {
+    background: $primary-text-color;
+  }
+}
+
+#success-message, #error-message {
+  margin-bottom: 2rem;
+}
+</style>
+
+<script>
+  document.addEventListener('DOMContentLoaded', () => {
+    const form = document.getElementById('contact-form') as HTMLFormElement;
+    const successMessage = document.getElementById('success-message');
+    const errorMessage = document.getElementById('error-message');
+    
+    if (form && successMessage && errorMessage) {
+      form.addEventListener('submit', async (e) => {
+        e.preventDefault();
+        
+        const formData = new FormData(form);
+        const formObject: Record<string, string> = {};
+        formData.forEach((value, key) => {
+          if (typeof value === 'string') {
+            formObject[key] = value;
+          }
+        });
+        
+        try {
+          errorMessage.style.display = 'none';
+          
+          const response = await fetch('/', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+            body: new URLSearchParams(formObject).toString()
+          });
+          
+          if (response.ok) {
+            form.style.display = 'none';
+            successMessage.style.display = 'block';
+          } else {
+            errorMessage.style.display = 'block';
+          }
+        } catch (error) {
+          console.error('Error submitting form:', error);
+          errorMessage.style.display = 'block';
+        }
+      });
+    }
+  });
+</script> 
