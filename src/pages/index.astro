@@ -1,0 +1,116 @@
+---
+import Layout from '../layouts/Layout.astro';
+import HeroLogo from '../components/HeroLogo.astro';
+---
+
+<Layout title="Home">
+  <section class="container hero">
+    <div class="hero__image">
+			<transition name="hero-logo" @after-leave="afterLeave">
+				<HeroLogo />
+			</transition>
+    </div>
+    <div>
+      <h1 class="hero__title">Hi!<br />I'm <strong>Núria</strong>.</h1>
+      <h2 class="hero__title hero__title--sub">
+        I'm a developer,<br />working mostly on <strong>front-end</strong>.
+      </h2>
+    </div>
+  </section>
+
+  <div class="separator">
+    <hr />
+  </div>
+
+  <section class="container container--sm">
+    <h2>About me</h2>
+
+    <p>
+      I'm currently working as a front-end engineer at Voicemod, previously I was helping other developers grow at
+      <a
+        href="https://codely.tv/"
+        rel="noopener noreferrer nofollow"
+        >Codely</a
+      >. I love CSS, JavaScript and Vue.js, but I also like to meddle with
+      back-end stuff, from Node to Rust.
+    </p>
+
+    <p>
+      On the personal side, I love food, craft beer and playing videogames. I
+      sometimes develop games too, you can check them
+      <a href="/projects">here</a>.
+    </p>
+  </section>
+</Layout>
+
+<style lang="scss">
+.separator {
+  margin: 4.8rem 0;
+  display: flex;
+  justify-content: center;
+  hr,
+  &:before,
+  &:after {
+    width: 1.25rem;
+    height: 1.25rem;
+    border-radius: 50%;
+    margin: 0 0.325rem;
+  }
+  &:before,
+  &:after {
+    content: "";
+    background: $secondary-color;
+  }
+  hr {
+    border: none;
+    background: $primary-color;
+  }
+}
+
+.hero {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  @media screen and (min-width: $mq-lg) {
+    justify-content: space-between;
+  }
+  &__image {
+    height: 17.8rem;
+    width: 17.8rem;
+    max-width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  
+  &__title {
+    font-size: 3rem;
+    line-height: 1;
+    padding-left: 1rem;
+    strong {
+      font-weight: 400;
+      color: $primary-text-color;
+    }
+    &--sub {
+      line-height: 1.2;
+      font-size: 2.25rem;
+    }
+  }
+}
+
+/* Animation for the logo */
+@keyframes heroLogoEnter {
+  from {
+    opacity: 0;
+    transform: scale(0.5);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+.hero-logo-container {
+  animation: heroLogoEnter 0.7s ease-out forwards;
+}
+</style>

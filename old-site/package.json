@@ -1,0 +1,30 @@
+{
+  "name": "site",
+  "private": true,
+  "scripts": {
+    "build": "gridsome build",
+    "develop": "gridsome develop",
+    "explore": "gridsome explore",
+    "lint": "eslint --ext .js,.vue --ignore-path .gitignore ."
+  },
+  "dependencies": {
+    "@gridsome/source-filesystem": "^0.6.2",
+    "@gridsome/transformer-json": "^0.2.1",
+    "@gridsome/transformer-remark": "^0.6.4",
+    "@perlatsp/gridsome-source-devto": "0.0.1",
+    "dayjs": "^1.11.13",
+    "gridsome": "^0.7.23",
+    "sass": "^1.70.0",
+    "sass-loader": "^8.0.2",
+    "sharp": "^0.33.5"
+  },
+  "devDependencies": {
+    "babel-eslint": "^10.1.0",
+    "eslint": "^7.32.0",
+    "eslint-config-prettier": "^8.5.0",
+    "eslint-plugin-prettier": "^4.2.1",
+    "eslint-plugin-vue": "^7.20.0",
+    "prettier": "^2.8.8",
+    "style-resources-loader": "^1.5.0"
+  }
+}

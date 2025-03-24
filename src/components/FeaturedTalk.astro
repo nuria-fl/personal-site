@@ -1,0 +1,79 @@
+---
+import TalkInfo from './TalkInfo.astro';
+
+interface Props {
+  talk: {
+    title: string;
+    conf: string;
+    date: Date;
+    video?: string;
+    slides?: string;
+  }
+}
+
+const { talk } = Astro.props;
+// Extract YouTube video ID from the URL if it exists
+const videoId = talk.video && talk.video.includes('youtube.com') 
+  ? new URL(talk.video).searchParams.get('v') 
+  : '';
+---
+
+<section class="featured-talk">
+  <div class="featured-talk__video">
+    {videoId ? (
+      <iframe
+        src={`https://www.youtube.com/embed/${videoId}`}
+        frameborder="0"
+        allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
+        allowfullscreen
+      ></iframe>
+    ) : talk.video && (
+      <a href={talk.video} rel="noopener noreferrer nofollow" class="video-link">
+        Watch Video
+      </a>
+    )}
+  </div>
+  <TalkInfo talk={talk} />
+</section>
+
+<style lang="scss">
+.featured-talk {
+  margin-bottom: 3rem;
+  &__video {
+    position: relative;
+    padding-top: 56%;
+    margin-bottom: 1rem;
+    background: $secondary-color;
+    iframe {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+    }
+  }
+}
+
+.video-link {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: $text-color;
+  background: rgba(255, 255, 255, 0.2);
+  font-size: 1.5rem;
+  text-decoration: none;
+  
+  &:hover {
+    background: rgba(255, 255, 255, 0.4);
+  }
+}
+
+iframe {
+  width: 100%;
+}
+</style> 

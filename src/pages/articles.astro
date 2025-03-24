@@ -1,0 +1,177 @@
+---
+import Layout from '../layouts/Layout.astro';
+
+// Define interface for dev.to article
+interface DevToArticle {
+  id: number;
+  title: string;
+  description: string;
+  published_at: string;
+  url: string;
+  cover_image: string | null;
+  tag_list: string[];
+  positive_reactions_count: number;
+  comments_count: number;
+}
+
+// Fetch articles from dev.to API
+const username = 'pincfloit'; // Your dev.to username
+const response = await fetch(`https://dev.to/api/articles?username=${username}`);
+const articles = await response.json() as DevToArticle[];
+
+// Sort articles by publish date (newest first)
+const sortedArticles = articles.sort((a: DevToArticle, b: DevToArticle) => {
+  return new Date(b.published_at).getTime() - new Date(a.published_at).getTime();
+});
+
+// Format date to display
+function formatDate(dateString: string): string {
+  const date = new Date(dateString);
+  return date.toLocaleDateString('en-US', {
+    year: 'numeric',
+    month: 'long',
+    day: 'numeric',
+  });
+}
+---
+
+<Layout title="Articles">
+  <div class="container">
+    <h1>Articles</h1>
+    <p>Articles I've written on <a href="https://dev.to/pincfloit" target="_blank" rel="noopener noreferrer">Dev.to</a></p>
+    
+    <div class="articles">
+      {sortedArticles.map((article: DevToArticle) => (
+        <article class="article">
+          <a href={article.url} class="article__link" target="_blank" rel="noopener noreferrer">
+            {article.cover_image && (
+              <div class="article__cover">
+                <img src={article.cover_image} alt={article.title} />
+              </div>
+            )}
+            <div class="article__content">
+              <h2 class="article__title">{article.title}</h2>
+              <div class="article__meta">
+                <time datetime={article.published_at}>{formatDate(article.published_at)}</time>
+                <span class="article__tags">
+                  {article.tag_list.map((tag: string, i: number) => (
+                    <span class="article__tag">#{tag}{i < article.tag_list.length - 1 ? ' ' : ''}</span>
+                  ))}
+                </span>
+              </div>
+              <p class="article__description">{article.description}</p>
+              <div class="article__reactions">
+                ❤️ {article.positive_reactions_count} reactions • 💬 {article.comments_count} comments
+              </div>
+            </div>
+          </a>
+        </article>
+      ))}
+    </div>
+  </div>
+</Layout>
+
+<style lang="scss">
+h1 {
+  font-size: var(--title-size);
+}
+
+.articles {
+  margin: 2rem 0;
+}
+
+.article {
+  margin-bottom: 2.5rem;
+  
+  &__link {
+    display: block;
+    text-decoration: none;
+    color: $text-color;
+    border-bottom: none;
+    transition: transform 0.3s ease;
+    
+    &:hover {
+      background: transparent;
+      transform: translateY(-5px);
+      
+      .article__title {
+        color: $primary-text-color;
+      }
+    }
+  }
+  
+  &__cover {
+    margin-bottom: 1rem;
+    border-radius: 8px;
+    overflow: hidden;
+    
+    img {
+      width: 100%;
+      height: auto;
+      display: block;
+      transition: transform 0.5s ease;
+    }
+    
+    &:hover img {
+      transform: scale(1.03);
+    }
+  }
+  
+  &__title {
+    margin: 0 0 0.5rem;
+    font-size: 1.5rem;
+    transition: color 0.3s ease;
+  }
+  
+  &__meta {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+    margin-bottom: 0.5rem;
+    font-size: 0.9rem;
+    color: #666;
+  }
+  
+  &__tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+  }
+  
+  &__tag {
+    font-size: 0.85rem;
+    color: $primary-text-color;
+  }
+  
+  &__description {
+    margin: 0.5rem 0;
+    line-height: 1.5;
+  }
+  
+  &__reactions {
+    margin-top: 0.75rem;
+    font-size: 0.9rem;
+    color: #777;
+  }
+}
+
+@media (min-width: $mq-md) {
+  .articles {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 2rem;
+  }
+  
+  .article {
+    margin-bottom: 0;
+    
+    &:first-child {
+      grid-column: 1 / -1;
+      
+      .article__title {
+        font-size: 2rem;
+      }
+    }
+  }
+}
+</style> 
